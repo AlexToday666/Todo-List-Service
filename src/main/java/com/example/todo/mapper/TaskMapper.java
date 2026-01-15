@@ -3,7 +3,9 @@ package com.example.todo.mapper;
 import com.example.todo.dto.TaskRequestDto;
 import com.example.todo.dto.TaskResponseDto;
 import com.example.todo.model.Task;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TaskMapper {
     public TaskResponseDto toDto(Task task) {
         TaskResponseDto dto = new TaskResponseDto();
