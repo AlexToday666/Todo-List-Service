@@ -5,7 +5,7 @@ import com.example.todo.dto.TaskResponseDto;
 import com.example.todo.model.Task;
 
 public class TaskMapper {
-    public static TaskResponseDto toDto(Task task) {
+    public TaskResponseDto toDto(Task task) {
         TaskResponseDto dto = new TaskResponseDto();
         dto.setId(task.getId());
         dto.setTitle(task.getTitle());
