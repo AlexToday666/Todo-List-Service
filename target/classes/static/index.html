@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List Service</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+    <header class="app-header">
+        <div class="logo-circle">✓</div>
+        <div>
+            <h1 class="app-title">Список задач</h1>
+            <p class="app-subtitle">Простой сервис задач на Spring Boot</p>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <section class="card">
+            <h2 class="card-title">Новая задача</h2>
+            <form id="task-form" class="task-form">
+                <div class="field-group">
+                    <label for="title">Название</label>
+                    <input id="title" name="title" type="text" required placeholder="Например, Купить продукты">
+                </div>
+                <div class="field-group">
+                    <label for="description">Описание</label>
+                    <textarea id="description" name="description" rows="3"
+                              placeholder="Добавьте детали, чтобы ничего не забыть"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary"><span>➕</span> <span>Добавить</span></button>
+            </form>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <h2 class="card-title">Мои задачи</h2>
+                <button id="refresh-btn" class="btn btn-ghost-small" type="button">Обновить</button>
+            </div>
+            <div id="status" class="status-bar" aria-live="polite"></div>
+            <ul id="task-list" class="task-list"></ul>
+            <div id="empty-state" class="empty-state">
+                Пока задач нет. Добавьте первую сверху.
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <span>Todo List Service</span>
+        <span class="dot">•</span>
+        <span>Frontend by Cursor (зелёно‑белая тема)</span>
+    </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
+

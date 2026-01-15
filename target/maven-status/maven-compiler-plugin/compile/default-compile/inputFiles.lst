@@ -1,0 +1,8 @@
+/home/ernest/Downloads/Todo-List-Service/src/main/java/com/example/todo/model/Task.java
+/home/ernest/Downloads/Todo-List-Service/src/main/java/com/example/todo/TodoAppApplication.java
+/home/ernest/Downloads/Todo-List-Service/src/main/java/com/example/todo/controller/TaskController.java
+/home/ernest/Downloads/Todo-List-Service/src/main/java/com/example/todo/mapper/TaskMapper.java
+/home/ernest/Downloads/Todo-List-Service/src/main/java/com/example/todo/repository/TaskRepository.java
+/home/ernest/Downloads/Todo-List-Service/src/main/java/com/example/todo/dto/TaskResponseDto.java
+/home/ernest/Downloads/Todo-List-Service/src/main/java/com/example/todo/service/TaskService.java
+/home/ernest/Downloads/Todo-List-Service/src/main/java/com/example/todo/dto/TaskRequestDto.java
