@@ -1,10 +1,13 @@
 package com.example.todo.task.dto;
 
+import java.time.LocalDateTime;
+
 public class TaskResponseDto {
     private Long id;
     private String title;
     private String description;
     private boolean completed;
+    private LocalDateTime createdAt;
 
     public Long getId() {
         return id;
@@ -36,5 +39,13 @@ public class TaskResponseDto {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

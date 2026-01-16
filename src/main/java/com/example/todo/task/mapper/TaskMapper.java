@@ -13,6 +13,7 @@ public class TaskMapper {
         dto.setTitle(task.getTitle());
         dto.setDescription(task.getDescription());
         dto.setCompleted(task.isComplete());
+        dto.setCreatedAt(task.getCreatedAt());
         return dto;
     }
     
