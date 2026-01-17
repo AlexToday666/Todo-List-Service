@@ -2,8 +2,11 @@ package com.example.todo.task.service;
 
 import com.example.todo.task.model.Task;
 import com.example.todo.task.repository.TaskRepository;
+import com.example.todo.user.model.User;
 import org.springframework.stereotype.Service;
 
+import java.net.Authenticator;
+import java.security.Security;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +19,8 @@ public class TaskService {
     }
 
     public List<Task> getAllTasks() {
-        return repository.findAll();
+        User currentUser = getCurrentUser();
+        return repository.findByUserId(currentUser.getId());
     }
 
     public Optional<Task> getTaskById(Long id) {
@@ -24,6 +28,7 @@ public class TaskService {
     }
 
     public Task createTask(Task task) {
+        task.setUser(getCurrentUser());
         return repository.save(task);
     }
 
@@ -38,5 +43,12 @@ public class TaskService {
 
     public void deleteTask(Long id) {
         repository.deleteById(id);
+    }
+
+    private User getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        return userService.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
     }
 }

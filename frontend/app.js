@@ -22,6 +22,17 @@ const state = {
     panStart: { x: 0, y: 0 }
 };
 
+// Сохранение токена после логина
+localStorage.setItem('token', response.token);
+
+// Отправка токена в заголовках
+fetch('/api/tasks', {
+    headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+    }
+});
+
 // ============================================
 // DOM Elements
 // ============================================
