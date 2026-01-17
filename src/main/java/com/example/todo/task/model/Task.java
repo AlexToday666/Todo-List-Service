@@ -11,10 +11,17 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(name = "title", nullable = false)
     private String title;
+    
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "complete", nullable = false)
     private boolean complete;
+    
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     public Task() {

@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:16
+    container_name: todo-db
+    environment:
+      POSTGRES_DB: todo
+      POSTGRES_USER: todo
+      POSTGRES_PASSWORD: todo
+    ports:
+      - "5432:5432"
+    volumes:
+      - todo_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U todo"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: .
+    container_name: todo-backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/todo
+      SPRING_DATASOURCE_USERNAME: todo
+      SPRING_DATASOURCE_PASSWORD: todo
+      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+      SPRING_JPA_SHOW_SQL: "true"
+      SPRING_FLYWAY_ENABLED: "true"
+    ports:
+      - "8080:8080"
+
+volumes:
+  todo_pg:
