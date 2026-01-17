@@ -1,5 +1,6 @@
 package com.example.todo.task.model;
 
+import com.example.todo.user.model.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -23,6 +24,19 @@ public class Task {
     
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+
+    private User user;
+
+    public User getUser(){
+        return user;
+    }
+
+    public void setUser(User user){
+        this.user = user;
+    }
 
     public Task() {
         this.createdAt = LocalDateTime.now();
