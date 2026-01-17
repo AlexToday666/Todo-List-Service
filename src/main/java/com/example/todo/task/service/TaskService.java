@@ -3,19 +3,22 @@ package com.example.todo.task.service;
 import com.example.todo.task.model.Task;
 import com.example.todo.task.repository.TaskRepository;
 import com.example.todo.user.model.User;
+import com.example.todo.user.service.UserService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.net.Authenticator;
-import java.security.Security;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class TaskService {
     private final TaskRepository repository;
+    private final UserService userService;
 
-    public TaskService(TaskRepository repository) {
+    public TaskService(TaskRepository repository, UserService userService) {
         this.repository = repository;
+        this.userService = userService;
     }
 
     public List<Task> getAllTasks() {

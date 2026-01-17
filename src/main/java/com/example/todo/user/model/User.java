@@ -17,7 +17,7 @@ public class User {
 
     @Column(name = "username", unique = true, nullable = false)
     @NotBlank
-    @Size(min = 3, max = 10)
+    @Size(min = 3, max = 50)
     private String username;
 
     @Column(name = "email", unique = true, nullable = false)
@@ -25,16 +25,16 @@ public class User {
     @NotBlank
     private String email;
 
-    @Column(name = "password", unique = true, nullable = false)
+    @Column(name = "password", nullable = false)
     @NotBlank
-    @Size(min = 1)
+    @Size(min = 6)
     private String password;
 
     @Column(name = "created_at", nullable = false)
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     public User() {
-        this.created_at = LocalDateTime.now();
+        this.createdAt = LocalDateTime.now();
     }
 
     public String getUsername() {
@@ -69,11 +69,11 @@ public class User {
         this.password = password;
     }
 
-    public LocalDateTime getCreated_at() {
-        return created_at;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(LocalDateTime created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }
